@@ -1,0 +1,37 @@
+{
+  "name": "web3-tools",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@wagmi/core": "1.0.0-next.6",
+    "axios": "^1.4.0",
+    "dayjs": "^1.11.7",
+    "pinia": "^2.0.35",
+    "tailwind-variants": "^0.1.5",
+    "viem": "^0.3.17",
+    "vue": "^3.2.47",
+    "vue-router": "^4.1.6"
+  },
+  "devDependencies": {
+    "@iconify/vue": "^4.1.1",
+    "@tailwindcss/typography": "^0.5.9",
+    "@types/node": "^18.16.3",
+    "@vitejs/plugin-vue": "^4.2.1",
+    "autoprefixer": "^10.4.14",
+    "daisyui": "^2.51.6",
+    "postcss": "^8.4.23",
+    "rollup-plugin-visualizer": "^5.9.0",
+    "tailwindcss": "^3.3.2",
+    "typescript": "^5.0.4",
+    "unplugin-vue-components": "^0.24.1",
+    "vite": "4.3.4",
+    "vite-plugin-node-polyfills": "^0.8.2",
+    "vue-tsc": "^1.6.4"
+  }
+}
