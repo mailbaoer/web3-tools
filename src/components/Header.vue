@@ -47,7 +47,12 @@ const clickItem = async (title: string) => {
       </div>
     </div>
     <div v-else>
-      <label for="ConnectWalletModal" @click="openConnect" class="btn" :class="globalStore.loading ? 'loading' : ''">
+      <label
+        for="ConnectWalletModal"
+        @click="openConnect"
+        class="btn btn-outline rounded-none"
+        :class="globalStore.loading ? 'loading' : ''"
+      >
         Connect
       </label>
     </div>
