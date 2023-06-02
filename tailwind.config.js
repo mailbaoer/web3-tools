@@ -7,14 +7,14 @@ export default {
   daisyui: {
     themes: [
       {
-        lofi: {
-          ...require("daisyui/src/colors/themes")["[data-theme=lofi]"],
+        light: {
+          ...require("daisyui/src/theming/themes")["[data-theme=light]"],
           "background-color": "#f8fafc",
         },
       },
       {
         black: {
-          ...require("daisyui/src/colors/themes")["[data-theme=black]"],
+          ...require("daisyui/src/theming/themes")["[data-theme=black]"],
           "background-color": "#0a0a0a",
         },
       },

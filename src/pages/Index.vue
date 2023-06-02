@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { allTools } from "@/composables/useTools";
-import { Icon } from "@iconify/vue";
-import { useRouter } from "vue-router";
+import { allTools } from '@/composables/useTools';
+import { Icon } from '@iconify/vue';
+import { useRouter } from 'vue-router';
 
 const tools = allTools;
 const router = useRouter();
@@ -15,13 +15,9 @@ const gotoTool = (name: string) => {
     <div v-for="list in tools" :key="list.title">
       <h2 class="text-3xl font-bold mt-6">{{ list.title }}</h2>
       <div class="flex flex-col md:flex-row flex-wrap">
-        <div
-          class="w-full h-[200px] md:w-1/4 p-5"
-          v-for="tool in list.children"
-          :key="tool.title"
-        >
+        <div class="w-full h-[200px] md:w-1/4 p-5" v-for="tool in list.children" :key="tool.title">
           <div
-            class="card w-full h-full bg-base-100 shadow-xl cursor-pointer"
+            class="card w-full h-full bg-base-100 shadow-xl cursor-pointer rounded-none"
             @click="gotoTool(tool.name)"
           >
             <div class="card-body">
