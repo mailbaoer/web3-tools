@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { Hex } from "viem";
-import { privateKeyToAccount } from "viem/accounts";
-import { ref } from "vue";
+import { Hex } from 'viem';
+import { privateKeyToAccount } from 'viem/accounts';
+import { ref } from 'vue';
 
 const address = ref();
 const showError = ref(false);
@@ -12,8 +12,8 @@ const updateValue = (e: Event) => {
   if (showError.value) showError.value = false;
 
   const target = e.target as HTMLTextAreaElement;
-  let value = target.value || "0x";
-  if (value.startsWith("0x")) {
+  let value = target.value || '0x';
+  if (value.startsWith('0x')) {
     if (value.length < 66) return;
     if (value.length > 66) {
       showError.value = true;
@@ -47,15 +47,10 @@ const updateValue = (e: Event) => {
       @input="updateValue"
     ></textarea>
 
-    <p
-      v-if="address"
-      class="my-6 shadow-xl border-solid border-black bg-gray-50 p-4"
-    >
+    <p v-if="address" class="my-6 shadow-xl border-solid border-black bg-gray-50 p-4 break-all">
       该 Private Key 的 Address 为: {{ address }}
     </p>
-    <p v-if="showError" class="text-red-500">
-      该 Private Key 无效，请输入有效 Key 后尝试！
-    </p>
+    <p v-if="showError" class="text-red-500">该 Private Key 无效，请输入有效 Key 后尝试！</p>
   </div>
 </template>
 
