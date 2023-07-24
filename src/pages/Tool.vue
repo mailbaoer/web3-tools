@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
 
+import BackgroundRemoval from '@/components/BackgroundRemoval.vue';
 import Base64Code from '@/components/Base64Code.vue';
 import CreateAccount from '@/components/CreateAccount.vue';
 import GeoIP from '@/components/GeoIP.vue';
@@ -25,6 +26,7 @@ const tools: { [title: string]: object } = {
   PasswordGenerate: PasswordGenerate,
   GeoIP: GeoIP,
   JsonFormat: JsonFormat,
+  BackgroundRemoval: BackgroundRemoval,
 };
 </script>
 

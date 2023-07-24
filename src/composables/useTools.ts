@@ -68,6 +68,17 @@ const allTools = [
                 icon: 'noto:locked-with-key'
             }
         ]
+    },
+    {
+        title: "图片工具",
+        children: [
+            {
+                name: "BackgroundRemoval",
+                title: "背景移除",
+                description: "移除图片背景",
+                icon: 'noto:locked-with-key'
+            }
+        ]
     }
 ];
 
