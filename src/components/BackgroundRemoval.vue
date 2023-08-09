@@ -1,28 +1,41 @@
-<script setup lang="ts">
+<script setup lang='ts'>
 import imglyRemoveBackground from '@imgly/background-removal';
-import { onMounted, ref } from 'vue';
+import { ref, watch } from 'vue';
 
-const image_src =
-  'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80';
-
-const url = ref(image_src);
+const imageURL = ref<any>(null);
+const originalImage = ref<any>(null);
+const isLoading = ref(false);
 
 const removeBackground = async (image: string) => {
-  imglyRemoveBackground(image).then((blob: Blob) => {
-    console.log('222222222222', URL.createObjectURL(blob));
-    // The result is a blob encoded as PNG. It can be converted to an URL to be used as HTMLImage.src
-    url.value = URL.createObjectURL(blob);
-  });
+  const blob: Blob = await imglyRemoveBackground(image);
+  imageURL.value = URL.createObjectURL(blob);
 };
 
-onMounted(async () => {
-  console.log('1111111111111');
-  await removeBackground(image_src);
+const file = ref<any>(null);
+const changeImage = (e: any) => {
+  file.value = e.target.files[0];
+  originalImage.value = URL.createObjectURL(file.value);
+};
+
+watch(() => file.value, async () => {
+  isLoading.value = true;
+  await removeBackground(file.value);
+  isLoading.value = false;
 });
 </script>
 
 <template>
-  <div>Test</div>
-  <img :src="url" width="100" height="100" />
-  <input type="file" class="file-input file-input-bordered w-full max-w-xs" />
+  <div class='flex flex-col items-center justify-center p-4'>
+    <h3 class='my-6 text-2xl font-bold'>Remove Image Background</h3>
+    <div class='flex space-x-6 h-full'>
+      <img :src='originalImage' width='300' height='auto' class='min-h-16' />
+      <div v-if='isLoading' class='w-[300px] h-full flex items-center justify-center'>
+        <span class='loading loading-ring loading-lg w-100 h-100 bg-gray-200 z-10'></span>
+      </div>
+      <img v-else :src='imageURL' width='300' height='auto' class='min-h-16' />
+    </div>
+    
+    <input type='file' :disabled='isLoading' class='file-input file-input-bordered w-full my-4 max-w-xs'
+           @change='changeImage' />
+  </div>
 </template>
