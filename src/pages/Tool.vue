@@ -33,7 +33,7 @@ const tools: { [title: string]: object } = {
 <template>
   <div class="w-full flex justify-center">
     <KeepAlive>
-      <div class="w-full md:w-1/2 flex justify-center card card-bordered bg-base-100 shadow-xl rounded-none">
+      <div class="w-full h-full md:w-1/2 flex justify-center card card-bordered bg-base-100 shadow-xl rounded-none">
         <component :is="tools[route.params.id as string]"></component>
       </div>
     </KeepAlive>

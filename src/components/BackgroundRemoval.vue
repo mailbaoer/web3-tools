@@ -14,6 +14,7 @@ const removeBackground = async (image: string) => {
 const file = ref<any>(null);
 const changeImage = (e: any) => {
   file.value = e.target.files[0];
+  imageURL.value = null;
   originalImage.value = URL.createObjectURL(file.value);
 };
 
@@ -35,7 +36,7 @@ watch(() => file.value, async () => {
       <img v-if='imageURL' :src='imageURL' width='300' height='auto' class='min-h-16' alt='after image' />
     </div>
     
-    <input type='file' :disabled='isLoading' class='file-input file-input-bordered w-full h-full my-4 max-w-xs'
+    <input type='file' :disabled='isLoading' class='file-input file-input-bordered w-full my-4 max-w-xs'
            @change='changeImage' />
   </div>
 </template>
