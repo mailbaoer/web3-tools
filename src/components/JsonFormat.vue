@@ -22,10 +22,23 @@ watch(inputJson, () => {
     if (!inputJson.value) {
       formattedJson.value = "";
     } else {
-      const parsedJson = JSON.parse(inputJson.value);
+      let originalJson = inputJson.value;
+      // 如果输入的字符串以单引号开始并结束，移除这些单引号
+      if (originalJson.startsWith("'") && originalJson.endsWith("'")) {
+        originalJson = originalJson.slice(1, -1)
+      }
+      // 将所有的 \\ 替换为 \
+      originalJson = originalJson.replace(/\\\\/g, '\\');
+      console.log(originalJson, JSON.parse(originalJson))
+      let parsedJson = JSON.parse(originalJson);
+      while (typeof parsedJson === 'string' && (parsedJson.trim().startsWith('{') || parsedJson.trim().startsWith('['))) {
+        parsedJson = JSON.parse(parsedJson);
+      }
+      
       formattedJson.value = JSON.stringify(parsedJson, null, 2);
     }
   } catch (error) {
+    console.log(error)
     formattedJson.value = "无效的 JSON 字符串";
   }
 });
