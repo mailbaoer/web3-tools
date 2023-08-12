@@ -22,7 +22,7 @@ watch(inputJson, () => {
     if (!inputJson.value) {
       formattedJson.value = "";
     } else {
-      let originalJson = inputJson.value;
+      let originalJson = inputJson.value.trim();
       // 如果输入的字符串以单引号开始并结束，移除这些单引号
       if (originalJson.startsWith("'") && originalJson.endsWith("'")) {
         originalJson = originalJson.slice(1, -1)
