@@ -1,34 +1,5 @@
 const allTools = [
     {
-        title: "Web3",
-        children: [
-            {
-                name: 'PrivateKeyReverse',
-                title: 'PrivateKey 反查',
-                description: '使用PrivateKey 反查 Public Key',
-                icon: 'noto:locked-with-key',
-            },
-            {
-                name: 'CreateAccount',
-                title: '创建新账户',
-                description: '创建新账户，返回address，privatekey，助记词',
-                icon: 'noto:locked-with-key',
-            },
-            {
-                name: 'SignMessage',
-                title: '消息签名',
-                description: '根据录入的消息生成签名',
-                icon: 'noto:locked-with-key',
-            },
-            {
-                name: 'HexNumberConvert',
-                title: '16 进制 & 10 进制互转',
-                description: '16 进制数据和10进制数据互转',
-                icon: 'noto:locked-with-key',
-            },
-        ]
-    },
-    {
         title: "日常工具",
         children: [
             {
@@ -79,7 +50,36 @@ const allTools = [
                 icon: 'noto:locked-with-key'
             }
         ]
-    }
+    },
+    {
+        title: "Web3",
+        children: [
+            {
+                name: 'PrivateKeyReverse',
+                title: 'PrivateKey 反查',
+                description: '使用PrivateKey 反查 Public Key',
+                icon: 'noto:locked-with-key',
+            },
+            {
+                name: 'CreateAccount',
+                title: '创建新账户',
+                description: '创建新账户，返回address，privatekey，助记词',
+                icon: 'noto:locked-with-key',
+            },
+            {
+                name: 'SignMessage',
+                title: '消息签名',
+                description: '根据录入的消息生成签名',
+                icon: 'noto:locked-with-key',
+            },
+            {
+                name: 'HexNumberConvert',
+                title: '16 进制 & 10 进制互转',
+                description: '16 进制数据和10进制数据互转',
+                icon: 'noto:locked-with-key',
+            },
+        ]
+    },
 ];
 
 export { allTools };

@@ -13,7 +13,7 @@ const openAbout = () => {
   <div class="max-w-1200px min-h-screen">
     <Header />
     <div class="w-full flex flex-col items-center justify-center p-4 md:p-10">
-      <h1 class="text-4xl font-bold">Web3 工具箱</h1>
+      <h1 class="text-4xl font-bold">常用工具</h1>
       <p class="mt-6">
         <button class="mx-2 btn btn-ghost" @click="router.push('/')">
           列表
