@@ -15,7 +15,7 @@ const gotoTool = (name: string) => {
     <div v-for="list in tools" :key="list.title">
       <h2 class="text-3xl font-bold mt-6">{{ list.title }}</h2>
       <div class="flex flex-col md:flex-row flex-wrap">
-        <div class="w-full h-[200px] md:w-1/4 p-5" v-for="tool in list.children" :key="tool.title">
+        <div class="w-full h-[200px] md:w-1/2 lg:w-1/3 2xl:w-1/4 p-5" v-for="tool in list.children" :key="tool.title">
           <div
             class="card w-full h-full bg-base-100 shadow-xl cursor-pointer rounded-none"
             @click="gotoTool(tool.name)"
